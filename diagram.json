@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "author": "Inacap Student",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht", "top": -100, "left": 150, "attrs": {} },
+    { "type": "wokwi-led", "id": "led", "top": 120, "left": 150, "attrs": { "color": "green" } },
+    { "type": "wokwi-resistor", "id": "r1", "top": 160, "left": 100, "attrs": { "value": "220" } }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:3V3", "dht:VCC", "red", [ "v0" ] ],
+    [ "esp:GND.1", "dht:GND", "black", [ "v0" ] ],
+    [ "esp:4", "dht:SDA", "green", [ "v0" ] ],
+    [ "esp:2", "led:A", "blue", [ "v0" ] ],
+    [ "r1:1", "led:C", "black", [ "v0" ] ],
+    [ "esp:GND.2", "r1:2", "black", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
